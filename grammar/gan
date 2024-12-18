@@ -1,0 +1,14 @@
+int exm
+str out
+str gp
+exm=input()
+if exm >= 10
+    out="up"
+else 
+    out="down"
+try
+    out.split o
+expect
+    print "dame"
+    out="dame"
+print out

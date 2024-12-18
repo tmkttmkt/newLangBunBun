@@ -1,13 +1,23 @@
-int exm
-str out "sss"
-str gp
-input exm
-match 
-    exm 
-    (x>=10,out="up")
-    (x==str,out="mis")
-    (x==_,out="down")
-try
+out="sss"
+x=20
+exm=input
+flg=bool exm.lenght>=3
+match{
+    x>=10:out="up"
+    x==str:out="mis"
+    flg:out="eeyan"
+    x==_:out="down"
+}
+try(
     (out.split o)
     (print "dame",out="dame")
+)
 print out
+while(
+    (x>=0)
+    (
+        x -= 1
+        print x
+        print x
+    )
+)

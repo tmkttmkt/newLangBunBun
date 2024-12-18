@@ -1,8 +1,16 @@
 <Pragram>::={<Assignment>|<Value>}
 <Assignment>::=<Identifier>'='<Value>
-<Value>::=<Function>
-<Function>::=<Identifier>|<Identifier><Value>|<Value><uniFunction><Value>
+<Value>::=<Function>|<defCollection>|<Identifier>|<uniDefinition>|<uniFunction>
 
+<Function>::=<Identifier>|<Identifier><Value>|<Identifier>':'<Value>
+<uniFunction>::=<Value><Identifier><Value>
+<uniDefinition>::=<defTuples>|<defLists>|<defSets>|<defDictionaries>|<defNumber>|<defString>
+<defTuples>::='('<Value>{','<Value>}')'
+<defLists>::='['<Value>{','<Value>}']'
+<defSets>::='{'<Value>{','<Value>}'}'
+<defDictionaries>::='{'<Value>':'<Value>{','<Value>':'<Value>}'}'
+<defNumber>::=<digit> {<digit>}
+<defString>::='"'<letter>{<letter>}'"'
 
 
 
@@ -15,6 +23,5 @@
 
 
 <identifier> ::= <letter>{<letter>}
-<number> ::= <digit> {<digit>}
 <digit> ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
 <letter> ::= "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j" | "k" | "l" | "m" | "n" | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x" | "y" | "z"

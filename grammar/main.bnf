@@ -1,24 +1,15 @@
-<Pragram>::={<Assignment>|<Value>}
+<Pragram>::={<Assignment><newLine>?|<Value><newLine>?}
 <Assignment>::=<Identifier>'='<Value>
 <Value>::=<Function>|<defCollection>|<Identifier>|<uniDefinition>|<uniFunction>
-
-<Function>::=<Identifier>|<Identifier><Value>|<Identifier>':/n'<Value>
-<uniFunction>::=<Value><Identifier><Value>
-<uniDefinition>::=<defTuples>|<defDictionaries>|<defNumber>|<defString>
-<defTuples>::='('<Value>{','<Value>}')'|'(/n'<Value>{'/n'<Value>}'/n)'
+<Function>::=<Identifier><Value>?|<Identifier>':\n'<Value>
+<uniFunction>::=<Value><Symbols><Value>
+<defTuples>::='()'|'('<Value>{','<Value>}')'|'(\n'<Value>{'\n'<Value>}'\n)'
+<defDictionaries>::='{}'|'{'<Value>':'<Value>{','<Value>':'<Value>}'}'|'{\n'<Value>':'<Value>{'\n,'<Value>':'<Value>}'\n}'
 <defNumber>::=<digit> {<digit>}
 <defString>::='"'<letter>{<letter>}'"'
-
-
-
-
-
-
-
-
-
-
-
 <identifier> ::= <letter>{<letter>}
-<digit> ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
-<letter> ::= "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j" | "k" | "l" | "m" | "n" | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x" | "y" | "z"
+<Symbols> ::= <Symbol>{<Symbol>}
+<newLine>::='\n'
+<Symbol>::='+'|'*'|'='|'-'|'/'|'>'|'<'|'!'|
+<digit> ::= '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
+<letter> ::= 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' | 'j' | 'k' | 'l' | 'm' | 'n' | 'o' | 'p' | 'q' | 'r' | 's' | 't' | 'u' | 'v' | 'w' | 'x' | 'y' | 'z'

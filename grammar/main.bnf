@@ -2,13 +2,10 @@
 <Assignment>::=<Identifier>'='<Value>
 <Value>::=<Function>|<defCollection>|<Identifier>|<uniDefinition>|<uniFunction>
 
-<Function>::=<Identifier>|<Identifier><Value>|<Identifier>':'<Value>
+<Function>::=<Identifier>|<Identifier><Value>|<Identifier>':/n'<Value>
 <uniFunction>::=<Value><Identifier><Value>
-<uniDefinition>::=<defTuples>|<defLists>|<defSets>|<defDictionaries>|<defNumber>|<defString>
-<defTuples>::='('<Value>{','<Value>}')'
-<defLists>::='['<Value>{','<Value>}']'
-<defSets>::='{'<Value>{','<Value>}'}'
-<defDictionaries>::='{'<Value>':'<Value>{','<Value>':'<Value>}'}'
+<uniDefinition>::=<defTuples>|<defDictionaries>|<defNumber>|<defString>
+<defTuples>::='('<Value>{','<Value>}')'|'(/n'<Value>{'/n'<Value>}'/n)'
 <defNumber>::=<digit> {<digit>}
 <defString>::='"'<letter>{<letter>}'"'
 

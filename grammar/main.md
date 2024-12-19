@@ -27,6 +27,7 @@ val||dfnc val
 var=val
 # コレクション型
 名称:col
+全てタプルで定義して後はその変形
 ## タプル
 型関数:tup
 名称:tup
@@ -39,12 +40,7 @@ var=val
 ## リスト
 型関数:list
 名称:list
-[val,val,val...]
-[
-  val
-  val
-  ...
-]
+list tup
 ## 辞書
 型関数:dic
 名称:dic
@@ -57,12 +53,7 @@ var=val
 ## 集合
 型関数:set
 名称:set
-{val,val,val...}
-{
-  val
-  val
-  ...
-}
+set tup
 # 型
 型関数:type
 type 

@@ -1,0 +1,13 @@
+[package]
+name = "main"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+util_lib = { path = "../util_lib" }
+lexer = { path = "../lexer" }
+parser = { path = "../parser" }
+semantic = { path = "../semantic" }
+ir_gen = { path = "../ir_gen" }
+linux_codegen = { path = "../linux_codegen" }
+windows_codegen = { path = "../windows_codegen" }

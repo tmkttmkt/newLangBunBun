@@ -1,0 +1,11 @@
+[workspace]
+members = [
+    "main",          # 本体
+    "util_lib",      # 共通関数
+    "lexer",         # 字句解析用クレート
+    "parser",        # 構文解析用クレート
+    "semantic",      # 意味解析用クレート
+    "ir_gen",        # 中間言語生成用クレート
+    "linux_codegen", # Linux用機械語生成クレート
+    "windows_codegen" # Windows用機械語生成クレート
+]

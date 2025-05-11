@@ -1,0 +1,44 @@
+## SIL(スタックフル中間言語)
+
+#スタック型
+#グローバルスタックとローカルスタック
+#関数とif,whileは
+#ラベル:+indexで
+#構造内ではSTORE returnするまで戻らない
+
+PUSH x      # スタック: [x]
+PUSH x      # スタック: [x, x]
+MUL         # スタック: [x * x]
+PUSH 2      # スタック: [x * x, 2]
+ADD         # スタック: [x*x + 2]
+STORE y     # y に保存、retrunにも保存する
+
+
+PUSH 2         ; 引数1
+PUSH 3         ; 引数2
+JMP add      ; ジャンプして関数本体へ
+
+add:
+    POP b        ; 引数2
+    POP a        ; 引数1
+    ADD          ; スタック: [a + b]
+    STORE return      # retrunにも保存する
+
+LOAD x         ; スタック: [x]
+PUSH 0         ; スタック: [x, 0]
+GT             ; スタック: [x > 0]
+DUP          ; スタック: [x > 0,x > 0]
+JMPIF :仮の名前:
+:仮の名前:
+    LOAD x         ; スタック: [x]
+    PUSH 1         ; スタック: [x, 1]
+    SUB            ; スタック: [x - 1]
+    STORE x        ; x に保存
+PUSH -1        ; スタック: [x > 0, -1]
+MUL         ; スタック: [!(x > 0)]
+JMPIF :仮の名前:
+:仮の名前:
+    LOAD x         ; スタック: [x]
+    PUSH 5         ; スタック: [x, 5]
+    SUB            ; スタック: [x - 5]
+    STORE x        ; x に保存

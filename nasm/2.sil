@@ -1,0 +1,12 @@
+:main:
+PUSH 2
+PUSH 3
+ADD
+STORE result
+CALL print_result
+STORE return
+
+print_result:
+　　LOAD result
+　　CALL syscall_write
+　　STORE return

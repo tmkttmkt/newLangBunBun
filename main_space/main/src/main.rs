@@ -1,5 +1,5 @@
 use linux_codegen;
-use util_lib::process_file;
+use util_lib::{process_file, write_result_to_file};
 use std::env;
 
 fn main() {
@@ -16,6 +16,11 @@ fn main() {
     match process_file(file_path, linux_codegen::translate_to_linux_nasm) {
         Ok(nasm_code) => {
             println!("Generated NASM Code:\n{}", nasm_code);
+
+            // 変換結果をファイルに出力
+            if let Err(e) = write_result_to_file(file_path, &nasm_code,"nasm") {
+                eprintln!("Error writing result to file: {}", e);
+            }
         }
         Err(e) => {
             eprintln!("Error processing file: {}", e);

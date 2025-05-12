@@ -5,6 +5,10 @@ pub fn generate_linux_code(ir: &str) -> String {
 /// Translate SIL (Structured Intermediate Language) to Linux NASM assembly code.
 pub fn translate_to_linux_nasm(sil: &str) -> String {
     let mut nasm_code = String::new();
+    
+
+    nasm_code.push_str("section .text\n");
+    nasm_code.push_str("_start:\n");
 
     for line in sil.lines() {
         let trimmed = line.trim();
@@ -38,6 +42,17 @@ pub fn translate_to_linux_nasm(sil: &str) -> String {
             nasm_code.push_str(&format!("    ;; Unhandled instruction: {}\n", trimmed));
         }
     }
+
+    // プログラム終了コードを追加
+    nasm_code.push_str("\n    mov rax, 60         ; syscall: exit\n");
+    nasm_code.push_str("    xor rdi, rdi        ; status = 0\n");
+    nasm_code.push_str("    syscall\n");
+    nasm_code.push_str("section .data\n");
+
+    // 変数の定義を追加
+    // nasm_code.push_str("result dq 0\n");
+    // nasm_code.push_str("newline db 10\n");
+    // nasm_code.push_str("buffer db 0, 0, 0, 0, 0, 0, 0, 0, 10 ; 出力用（改行含む）\n\n");
 
     nasm_code
 }

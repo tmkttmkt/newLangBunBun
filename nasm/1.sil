@@ -1,0 +1,23 @@
+main:
+LOAD x
+PUSH 0
+GT
+DUP
+JMPIF :label_0
+PUSH -1
+MUL
+JMPIF :label_1
+
+label_0:
+LOAD x
+PUSH 1
+SUB
+STORE x
+STORE return
+
+label_1:
+LOAD x
+PUSH 5
+SUB
+STORE x
+STORE return

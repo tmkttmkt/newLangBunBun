@@ -6,6 +6,13 @@
 #ラベル:+indexで
 #構造内ではSTORE returnするまで戻らない
 
+PUSH 2
+PUSH 100
+STORE arr[]    ; arr[2] = 100
+
+PUSH 2
+LOAD arr[]     ; → arr[2]を読み込む
+
 PUSH x      # スタック: [x]
 PUSH x      # スタック: [x, x]
 MUL         # スタック: [x * x]

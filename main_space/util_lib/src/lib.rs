@@ -2,6 +2,8 @@ use std::fs;
 use std::io::{self, Error, ErrorKind};
 use std::path::{Path, PathBuf};
 
+pub mod lang_type;
+
 /// 指定されたファイルパスからファイルを読み取り、処理関数を適用します。
 /// 処理関数はコンパイル、アセンブル、またはその他の変換を行うことができます。
 pub fn process_file<F>(file_path: &str, process: F) -> io::Result<String>

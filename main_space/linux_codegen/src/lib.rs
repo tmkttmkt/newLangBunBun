@@ -47,7 +47,7 @@ pub fn translate_to_linux_nasm(sil: &str) -> String {
     nasm_code.push_str("\n    mov rax, 60         ; syscall: exit\n");
     nasm_code.push_str("    xor rdi, rdi        ; status = 0\n");
     nasm_code.push_str("    syscall\n");
-    nasm_code.push_str("section .data\n");
+    nasm_code.push_str("section .bss\n");
 
     // 変数の定義を追加
     // nasm_code.push_str("result dq 0\n");

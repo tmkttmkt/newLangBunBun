@@ -6,6 +6,12 @@
 #ラベル:+indexで
 #構造内ではSTORE returnするまで戻らない
 
+INT x
+FLOAT a
+CHAR c
+Array <INT>[10] arr
+
+
 PUSH 2
 PUSH 100
 STORE arr[]    ; arr[2] = 100

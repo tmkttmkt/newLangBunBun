@@ -1,30 +1,43 @@
-pub mod types {
-    pub mod lang_type_base;
-    pub mod number_type;
-    pub mod string_type;
-    pub mod array_type;
+pub trait LangType {
+    fn get_type_name(&self) -> &'static str;
 }
 
-use types::lang_type_base::LangType;
-use types::number_type::{Int, Float};
-use types::string_type::Str;
-use types::array_type::Array;
-
-// LangTypeEnumはすべての型をまとめた列挙型です。
-pub enum LangTypeEnum {
-    Int(Int),
-    Float(Float),
-    Str(Str),
-    Array(Box<LangTypeEnum>), // 配列の要素もLangTypeEnumで表現
+pub struct Int {
+    pub value: i64,
 }
 
-impl LangType for LangTypeEnum {
+impl LangType for Int {
     fn get_type_name(&self) -> &'static str {
-        match self {
-            LangTypeEnum::Int(_) => "Int",
-            LangTypeEnum::Float(_) => "Float",
-            LangTypeEnum::Str(_) => "String",
-            LangTypeEnum::Array(_) => "Array",
-        }
+        "Int"
+    }
+}
+
+pub struct Float {
+    pub value: f64,
+}
+
+impl LangType for Float {
+    fn get_type_name(&self) -> &'static str {
+        "Float"
+    }
+}
+
+pub struct Str {
+    pub value: String,
+}
+
+impl LangType for Str {
+    fn get_type_name(&self) -> &'static str {
+        "String"
+    }
+}
+
+pub struct Array<T: LangType> {
+    pub elements: Vec<T>,
+}
+
+impl<T: LangType> LangType for Array<T> {
+    fn get_type_name(&self) -> &'static str {
+        "Array"
     }
 }

@@ -1,43 +1,18 @@
-pub trait LangType {
-    fn get_type_name(&self) -> &'static str;
-}
+#![allow(unused_imports)]
+pub mod lang_type_base;
+pub mod number_type;
+pub mod char_type;
+pub mod array_type;
 
-pub struct Int {
-    pub value: i64,
-}
+use lang_type_base::LangType;
+use number_type::{Int, Float};
+use array_type::Array;
+use char_type::Char; // Charをインポート
 
-impl LangType for Int {
-    fn get_type_name(&self) -> &'static str {
-        "Int"
-    }
-}
-
-pub struct Float {
-    pub value: f64,
-}
-
-impl LangType for Float {
-    fn get_type_name(&self) -> &'static str {
-        "Float"
-    }
-}
-
-pub struct Str {
-    pub value: String,
-}
-
-impl LangType for Str {
-    fn get_type_name(&self) -> &'static str {
-        "String"
-    }
-}
-
-pub struct Array<T: LangType> {
-    pub elements: Vec<T>,
-}
-
-impl<T: LangType> LangType for Array<T> {
-    fn get_type_name(&self) -> &'static str {
-        "Array"
-    }
+// LangTypeEnumはすべての型をまとめた列挙型です。
+pub enum LangTypeEnum {
+    Int { value: Int, name: String },
+    Float { value: Float, name: String },
+    Char { value: Char, name: String }, // Charにnameを追加
+    Array { value: Box<LangTypeEnum>, name: String }, // 配列にもnameを追加
 }

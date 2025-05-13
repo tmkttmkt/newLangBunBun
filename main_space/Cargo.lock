@@ -13,6 +13,9 @@ version = "0.1.0"
 [[package]]
 name = "linux_codegen"
 version = "0.1.0"
+dependencies = [
+ "util_lib",
+]
 
 [[package]]
 name = "main"

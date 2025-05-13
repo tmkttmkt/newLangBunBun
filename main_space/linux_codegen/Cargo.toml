@@ -2,3 +2,5 @@
 name = "linux_codegen"
 version = "0.1.0"
 edition = "2021"
+[dependencies]
+util_lib = { path = "../util_lib" }

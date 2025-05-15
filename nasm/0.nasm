@@ -1,4 +1,8 @@
 section .text
+
+print:
+    ; print関数の実装はここに書く
+    ret
 _start:
     push 2
     push 3

@@ -1,9 +1,7 @@
 use std::collections::HashMap;
 use util_lib::lang_type::{LangTypeEnum, number_type::Int, number_type::Float, char_type::Char};
-
-pub fn generate_linux_code(ir: &str) -> String {
-    format!("Linux machine code for: {}", ir)
-}
+mod print_util;
+use print_util::nasm_print_function;
 
 /// Translate SIL (Structured Intermediate Language) to Linux NASM assembly code.
 pub fn translate_to_linux_nasm(sil: &str) -> String {
@@ -11,6 +9,7 @@ pub fn translate_to_linux_nasm(sil: &str) -> String {
     let mut variables: HashMap<String, LangTypeEnum> = HashMap::new(); // 中間言語変数を管理するマップ
 
     nasm_code.push_str("section .text\n");
+    nasm_code.push_str(nasm_print_function());
     nasm_code.push_str("_start:\n");
 
     for line in sil.lines() {

@@ -1,4 +1,4 @@
-:main:
+main:
 PUSH 2
 PUSH 3
 ADD

@@ -107,6 +107,10 @@ pub fn translate_to_linux_nasm(sil: &str) -> String {
                 nasm_code.push_str("    pop rax\n    cmp rax, 1\n");
                 nasm_code.push_str(&format!("    je {}\n", label));
             }
+            Some("CALL") => {
+                let func = parts.get(1).unwrap_or(&"unknown");
+                nasm_code.push_str(&format!("    call {}\n", func));
+            }
             Some(instruction) if instruction.ends_with(":") => {
                 nasm_code.push_str(&format!("{}:\n", instruction.trim_end_matches(':')));
             }

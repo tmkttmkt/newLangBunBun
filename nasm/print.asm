@@ -1,8 +1,8 @@
-//
-//bool:print:string*
 
-pub fn nasm_print_function() -> &'static str {
-    r#"
+
+
+
+
 %ifdef LINUX
 print:
     pop rsi
@@ -36,5 +36,3 @@ strlen:
 .done:
     push rcx    
     ret
-"#
-}

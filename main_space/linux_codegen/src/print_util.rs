@@ -14,7 +14,7 @@ print:
     mov rdi, 1          ; stdout
     ; rsi = 文字列アドレス（既に設定済み）
     syscall
-    pop rax
+    push rax
     ret
 %endif
 

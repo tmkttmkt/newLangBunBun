@@ -56,3 +56,4 @@ strlen:
     push rcx            ;返り値
     push r15            ;戻りアドレス
     ret
+
